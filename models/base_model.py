@@ -14,7 +14,7 @@ class BaseModel:
     def __init__(self, *args, **kwargs):
         """Initializes an instance"""
 
-        if kwargs:
+        if kwargs is not None and len(kwargs) != 0:
             if '__class__' in kwargs:
                 del kwargs['__class__']
 
@@ -26,7 +26,7 @@ class BaseModel:
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
             from .__init__ import storage
-            models.storage.new(self)
+            storage.new(self)
 
     def __str__(self):
         """string representation of the instance"""
@@ -37,15 +37,15 @@ class BaseModel:
         """save updates to an instance"""
 
         self.__dict__.update({'updated_at': datetime.now()})
-        form .__init__ import storage
-        models.storage.save()
+        from .__init__ import storage
+        storage.save()
 
     def to_dict(self):
         """Returns a dictionary representation of an instance"""
 
         disdict = dict(self.__dict__)
-        disdict.update({'__class__': type(self}.__name__,
+        disdict.update({'__class__': type(self).__name__,
                         'updated_at': self.updated_at.isoformat(),
                         'id': self.id,
-                        'created_at': self.ceated_at.isoformat()})
+                        'created_at': self.created_at.isoformat()})
         return disdict
