@@ -3,6 +3,7 @@
 
 from models.base_model import BaseModel
 
+
 class User(BaseModel):
     """
     class User that inherits from BaseModel
@@ -17,6 +18,7 @@ class User(BaseModel):
     first_name = ""
     last_name = ""
     password = ""
+
     def __init__(self, *args, **kwargs):
         """creates new instance"""
 
