@@ -22,14 +22,13 @@ class FileStorage:
         """creates new key for the objeckt"""
         key = (type(self).__name__ + "." + obj.id)
         FileStorage.__objects[key] = obj
-        
 
     def save(self):
         """serializes FileStorage.__objects"""
         dictofobjs = {}
         for key, value in FileStorage.__objects.items():
             dictofobjs[key] = value.to_dict()
-            
+
         with open(FileStorage.__file_path, 'w+') as f:
             json.dump(dictofobjs, f)
 

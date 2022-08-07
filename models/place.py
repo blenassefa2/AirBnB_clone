@@ -3,6 +3,7 @@
 
 from models.base_model import BaseModel
 
+
 class Place(BaseModel):
     """
     class Place that inherits from BaseModel
@@ -31,6 +32,7 @@ class Place(BaseModel):
     latitude = 0.0
     longitude = 0.0
     amentiy_ids = ["", ""]
+
     def __init__(self, *args, **kwargs):
         """creates new instance"""
 
