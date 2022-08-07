@@ -38,8 +38,8 @@ class FileStorage:
         else do nothing
         """
         try:
-            with open(FileStorage.__file_path, mode='r', encoding='UTF-8')as f:
-                objects_ = json.load(f)
+            with open(FileStorage.__file_path, 'r')as f:
+                objects_ = json.loads(f.read())
                 from models.base_model import BaseModel
                 from models.amenity import Amenity
                 from models.city import City

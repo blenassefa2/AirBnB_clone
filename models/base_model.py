@@ -31,7 +31,7 @@ class BaseModel:
     def __str__(self):
         """string representation of the instance"""
 
-        return f"[{type(self).__name__} ({self.id}) {self.__dict__}]"
+        return f"[{type(self).__name__}] ({self.id}) {self.__dict__}"
 
     def save(self):
         """save updates to an instance"""
