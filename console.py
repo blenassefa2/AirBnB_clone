@@ -178,7 +178,7 @@ double quotes **")
                 instance = storage.all()[key]
                 instance.__dict__[attr] = value
                 instance.save()
-            except KeyError:
+            except Exception:
                 print('** no instance found **')
 
     def do_BaseModel(self, line):
@@ -224,7 +224,7 @@ double quotes **")
                 try:
                     del storage.all()[key]
                     storage.save()
-                except KeyError:
+                except Exception:
                     print('** no instance found **')
 
         elif arg[0:8] == '.update(':

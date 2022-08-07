@@ -244,7 +244,7 @@ class, saves it (to the JSON file) and prints the id.\n', f.getvalue())
             HBNBCommand().onecmd(f"BaseModel.show({model_id})")
         self.assertIn('[BaseModel]', f.getvalue())
         with patch('sys.stdout', new=StringIO()) as f:
-            HBNBCommand().onecmd(f"BaseModel.show(idf)")
+            HBNBCommand().onecmd(f"BaseModel.show(id)")
         self.assertEqual(f.getvalue(), '** no instance found **\n')
 
     def test_userdotshow(self):
@@ -258,7 +258,7 @@ class, saves it (to the JSON file) and prints the id.\n', f.getvalue())
             HBNBCommand().onecmd(f"User.show({model_id})")
         self.assertIn('[User]', f.getvalue())
         with patch('sys.stdout', new=StringIO()) as f:
-            HBNBCommand().onecmd(f"User.show(idf)")
+            HBNBCommand().onecmd(f"User.show(id)")
         self.assertEqual(f.getvalue(), '** no instance found **\n')
 
     def test_citydotshow(self):
@@ -272,7 +272,7 @@ class, saves it (to the JSON file) and prints the id.\n', f.getvalue())
             HBNBCommand().onecmd(f"City.show({model_id})")
         self.assertIn('[City]', f.getvalue())
         with patch('sys.stdout', new=StringIO()) as f:
-            HBNBCommand().onecmd(f"City.show(idf)")
+            HBNBCommand().onecmd(f"City.show(id)")
         self.assertEqual(f.getvalue(), '** no instance found **\n')
 
     def test_statedotshow(self):
@@ -286,7 +286,7 @@ class, saves it (to the JSON file) and prints the id.\n', f.getvalue())
             HBNBCommand().onecmd(f"State.show({model_id})")
         self.assertIn('[State]', f.getvalue())
         with patch('sys.stdout', new=StringIO()) as f:
-            HBNBCommand().onecmd(f"State.show(idf)")
+            HBNBCommand().onecmd(f"State.show(id)")
         self.assertEqual(f.getvalue(), '** no instance found **\n')
 
     def test_placedotshow(self):
@@ -300,7 +300,7 @@ class, saves it (to the JSON file) and prints the id.\n', f.getvalue())
             HBNBCommand().onecmd(f"Place.show({model_id})")
         self.assertIn('[Place]', f.getvalue())
         with patch('sys.stdout', new=StringIO()) as f:
-            HBNBCommand().onecmd(f"Place.show(idf)")
+            HBNBCommand().onecmd(f"Place.show(id)")
         self.assertEqual(f.getvalue(), '** no instance found **\n')
 
     def test_amenitydotshow(self):
@@ -314,7 +314,7 @@ class, saves it (to the JSON file) and prints the id.\n', f.getvalue())
             HBNBCommand().onecmd(f"Amenity.show({model_id})")
         self.assertIn('[Amenity]', f.getvalue())
         with patch('sys.stdout', new=StringIO()) as f:
-            HBNBCommand().onecmd(f"Amenity.show(idf)")
+            HBNBCommand().onecmd(f"Amenity.show(id)")
         self.assertEqual(f.getvalue(), '** no instance found **\n')
 
     def test_reviewdotshow(self):
@@ -328,7 +328,7 @@ class, saves it (to the JSON file) and prints the id.\n', f.getvalue())
             HBNBCommand().onecmd(f"Review.show({model_id})")
         self.assertIn('[Review]', f.getvalue())
         with patch('sys.stdout', new=StringIO()) as f:
-            HBNBCommand().onecmd(f"Review.show(idf)")
+            HBNBCommand().onecmd(f"Review.show(id)")
         self.assertEqual(f.getvalue(), '** no instance found **\n')
 
     def test_reviewdotdestroy(self):
@@ -345,7 +345,7 @@ class, saves it (to the JSON file) and prints the id.\n', f.getvalue())
             HBNBCommand().onecmd(f"Review.show({model_id})")
         self.assertEqual(f.getvalue(), '** no instance found **\n')
         with patch('sys.stdout', new=StringIO()) as f:
-            HBNBCommand().onecmd(f"Review.destroy(idf)")
+            HBNBCommand().onecmd(f"Review.destroy(id)")
         self.assertEqual(f.getvalue(), '** no instance found **\n')
 
     def test_basedotdestroy(self):
@@ -362,7 +362,7 @@ class, saves it (to the JSON file) and prints the id.\n', f.getvalue())
             HBNBCommand().onecmd(f"BaseModel.show({model_id})")
         self.assertEqual(f.getvalue(), '** no instance found **\n')
         with patch('sys.stdout', new=StringIO()) as f:
-            HBNBCommand().onecmd(f"BaseModel.destroy(idf)")
+            HBNBCommand().onecmd(f"BaseModel.destroy(id)")
         self.assertEqual(f.getvalue(), '** no instance found **\n')
 
     def test_userdotdestroy(self):
@@ -379,7 +379,7 @@ class, saves it (to the JSON file) and prints the id.\n', f.getvalue())
             HBNBCommand().onecmd(f"User.show({model_id})")
         self.assertEqual(f.getvalue(), '** no instance found **\n')
         with patch('sys.stdout', new=StringIO()) as f:
-            HBNBCommand().onecmd(f"User.destroy(idf)")
+            HBNBCommand().onecmd(f"User.destroy(id)")
         self.assertEqual(f.getvalue(), '** no instance found **\n')
 
     def test_placedotdestroy(self):
@@ -396,7 +396,7 @@ class, saves it (to the JSON file) and prints the id.\n', f.getvalue())
             HBNBCommand().onecmd(f"Place.show({model_id})")
         self.assertEqual(f.getvalue(), '** no instance found **\n')
         with patch('sys.stdout', new=StringIO()) as f:
-            HBNBCommand().onecmd(f"Place.destroy(idf)")
+            HBNBCommand().onecmd(f"Place.destroy(id)")
         self.assertEqual(f.getvalue(), '** no instance found **\n')
 
     def test_statedotdestroy(self):
@@ -413,7 +413,7 @@ class, saves it (to the JSON file) and prints the id.\n', f.getvalue())
             HBNBCommand().onecmd(f"State.show({model_id})")
         self.assertEqual(f.getvalue(), '** no instance found **\n')
         with patch('sys.stdout', new=StringIO()) as f:
-            HBNBCommand().onecmd(f"State.destroy(idf)")
+            HBNBCommand().onecmd(f"State.destroy(id)")
         self.assertEqual(f.getvalue(), '** no instance found **\n')
 
     def test_citydotdestroy(self):
@@ -430,7 +430,7 @@ class, saves it (to the JSON file) and prints the id.\n', f.getvalue())
             HBNBCommand().onecmd(f"City.show({model_id})")
         self.assertEqual(f.getvalue(), '** no instance found **\n')
         with patch('sys.stdout', new=StringIO()) as f:
-            HBNBCommand().onecmd(f"City.destroy(idf)")
+            HBNBCommand().onecmd(f"City.destroy(id)")
         self.assertEqual(f.getvalue(), '** no instance found **\n')
 
     def test_amenitydotdestroy(self):
@@ -447,7 +447,7 @@ class, saves it (to the JSON file) and prints the id.\n', f.getvalue())
             HBNBCommand().onecmd(f"Amenity.show({model_id})")
         self.assertEqual(f.getvalue(), '** no instance found **\n')
         with patch('sys.stdout', new=StringIO()) as f:
-            HBNBCommand().onecmd(f"Amenity.destroy(idf)")
+            HBNBCommand().onecmd(f"Amenity.destroy(id)")
         self.assertEqual(f.getvalue(), '** no instance found **\n')
 
     def test_basedotupdate(self):
