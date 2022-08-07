@@ -20,16 +20,18 @@ class FileStorage:
 
     def new(self, obj):
         """creates new key for the objeckt"""
-        key = type(obj).__name__ + '.' + obj.id
+        key = (type(self).__name__ + "." + obj.id)
         FileStorage.__objects[key] = obj
+        
 
     def save(self):
         """serializes FileStorage.__objects"""
+        dictofobjs = {}
+        for key, value in FileStorage.__objects.items():
+            dictofobjs[key] = value.to_dict()
+            
         with open(FileStorage.__file_path, 'w+') as f:
-            dict_ = {}
-            for key, value in FileStorage.__objects.items():
-                dict_[key] = value.to_dict()
-            json.dump(dict_, f)
+            json.dump(dictofobjs, f)
 
     def reload(self):
         """
@@ -37,9 +39,8 @@ class FileStorage:
         else do nothing
         """
         try:
-            with open(FileStorage.__file_path, mode='r', encoding='UTF-8')
-            as to_file:
-                objects_ = json.load(to_file)
+            with open(FileStorage.__file_path, mode='r', encoding='UTF-8')as f:
+                objects_ = json.load(f)
                 from models.base_model import BaseModel
                 from models.amenity import Amenity
                 from models.city import City
@@ -54,9 +55,10 @@ class FileStorage:
                         'Review', 'State', 'User'
                         ]
 
-                for key, value in objects_loaded.items():
+                for key, value in objects_.items():
                     if value.get("__class__") in class_list:
                         met = value.get("__class__")
-                        self.objects[key] = eval(str(met))(objects_loaded[key])
+                        self.__objects[key] = eval(
+                                str(met)(objects_[key]))
         except(Exception):
             pass
